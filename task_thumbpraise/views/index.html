@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block title %}大拇指点赞功能demo{% endblock %}
+{% block head %}
+{% parent %}
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+{% endblock %}
+{% block content %}
+        <div class="hand"  id="praise">
+        <div class="finger thumb" id="thumb"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="finger"></div>
+        <div class="arm"></div>
+    </div>
+    <div class="add1">+1</div>
+    <script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../js/axios.min.js"></script>
+    <script type="text/javascript" src="../js/add.js"></script>
+    <script type="text/javascript" src="../js/system.js"></script>
+    <script>
+    SystemJS.import('../js/index-tran.js').then(function(e){
+        // console.log(e);
+        $.extend({
+            thumb:function() {
+                var fun = new e.default.praise($("#praise"),0);
+                fun.clickEvent();
+            }
+        });
+        $.thumb();
+    });
+    </script>
+{% endblock %}
